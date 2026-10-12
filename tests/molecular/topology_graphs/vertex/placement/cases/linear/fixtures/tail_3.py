@@ -28,7 +28,7 @@ def tail_3(position, building_block_2):
     vertex = stk.polymer.TailVertex(0, position, True)
     return CaseData(
         vertex=vertex,
-        edges=(tuple(get_edges(vertex))[0],),  # noqa: RUF015
+        edges=(next(iter(get_edges(vertex))),),
         building_block=building_block_2,
         position=position,
         alignment_tests={

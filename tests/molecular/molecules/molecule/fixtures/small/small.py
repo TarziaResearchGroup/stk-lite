@@ -1,5 +1,5 @@
 import pytest
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 from ...case_data import CaseData
 
@@ -10,8 +10,8 @@ from .ncore import *
 
 @pytest.fixture(
     params=(
-        lazy_fixture("small_ncore"),
-        lazy_fixture("small_internal"),
+        lf("small_ncore"),
+        lf("small_internal"),
     ),
 )
 def small(request: pytest.FixtureRequest) -> CaseData:

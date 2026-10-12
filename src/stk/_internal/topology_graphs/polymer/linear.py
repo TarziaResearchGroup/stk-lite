@@ -563,7 +563,7 @@ class Linear(TopologyGraph):
         for i, p in enumerate(body_orientations, 1):
             flip = bool(random_seed.choice(choices, p=[p, 1 - p]))
             vertices.append(
-                LinearVertex(i, np.array([i, 0, 0]), flip),
+                LinearVertex(i, np.array([i, 0, 0]), flip),  # type: ignore[arg-type]
             )
             edges.append(Edge(len(edges), vertices[i - 1], vertices[i]))
 

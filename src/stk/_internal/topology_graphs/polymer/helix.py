@@ -498,7 +498,7 @@ class Helix(TopologyGraph):
                             curr_angle * v_z * mirror,
                         ]
                     ),
-                    flip,
+                    flip,  # type: ignore[arg-type]
                 ),
             )
             edges.append(Edge(len(edges), vertices[i - 1], vertices[i]))

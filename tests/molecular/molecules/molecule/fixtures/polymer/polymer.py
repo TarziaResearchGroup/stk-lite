@@ -1,5 +1,5 @@
 import pytest
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
 
 from ...case_data import CaseData
 from .helix import *
@@ -10,8 +10,8 @@ from .linear import *
 
 @pytest.fixture(
     params=(
-        lazy_fixture("polymer_linear"),
-        lazy_fixture("polymer_helix"),
+        lf("polymer_linear"),
+        lf("polymer_helix"),
     ),
 )
 def polymer(request: pytest.FixtureRequest) -> CaseData:

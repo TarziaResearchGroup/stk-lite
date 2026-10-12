@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import numpy as np
 import pytest
-from pytest_lazyfixture import lazy_fixture
+from pytest_lazy_fixtures import lf
+
+import stk
 
 import stk
 
@@ -11,9 +13,9 @@ from ...case_data import CaseData
 
 @pytest.fixture(
     params=(
-        lazy_fixture("cage1"),
-        lazy_fixture("cage2"),
-        lazy_fixture("cage3"),
+        lf("cage1"),
+        lf("cage2"),
+        lf("cage3"),
     ),
 )
 def case_data(request):
