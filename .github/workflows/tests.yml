@@ -2,7 +2,7 @@ name: Tests
 on:
     push:
         branches:
-            - master
+            - main
     pull_request:
     workflow_dispatch:
 jobs:
@@ -47,10 +47,6 @@ jobs:
 
     pytest:
         runs-on: ubuntu-latest
-        services:
-            MongoDB:
-                image: mongo
-                ports: ["27017:27017"]
         steps:
             - uses: actions/checkout@v4
             - uses: astral-sh/setup-uv@v6
@@ -64,10 +60,6 @@ jobs:
 
     doctest:
         runs-on: ubuntu-latest
-        services:
-            MongoDB:
-                image: mongo
-                ports: ["27017:27017"]
         steps:
             - uses: actions/checkout@v4
             - uses: astral-sh/setup-uv@v6
