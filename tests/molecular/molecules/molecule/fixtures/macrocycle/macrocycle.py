@@ -3,8 +3,6 @@ from pytest_lazy_fixtures import lf
 
 import stk
 
-import stk
-
 from ...case_data import CaseData
 
 

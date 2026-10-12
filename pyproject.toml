@@ -25,7 +25,8 @@ dev = [
     "ruff",
     "mypy",
     "pytest",
-    "pytest-lazy-fixture",
+    "pytest-datadir",
+    "pytest-lazy-fixtures",
     "pytest-cov",
     "sphinx",
     "sphinx-copybutton",
@@ -70,7 +71,7 @@ strict_optional = true
 [[tool.mypy.overrides]]
 module = [
   "scipy.*",
-  "pytest_lazyfixture.*",
+  "pytest_lazy_fixtures.*",
   "pathos.*",
   "mchammer.*",
   "spindry.*",

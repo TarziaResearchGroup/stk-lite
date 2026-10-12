@@ -4,8 +4,6 @@ from pytest_lazy_fixtures import lf
 
 import stk
 
-import stk
-
 # Fixtures must by visible for lazy_fixture() calls.
 from .fixtures import *
 

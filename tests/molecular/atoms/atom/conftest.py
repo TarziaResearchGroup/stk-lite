@@ -1,5 +1,5 @@
 import pytest
-from pytest_lazyfixtures import lf
+from pytest_lazy_fixtures import lf
 
 import stk
 

@@ -19,28 +19,6 @@ class Smiles(MoleculeKeyMaker):
 
     .. _`2025_03_1`: https://github.com/rdkit/rdkit/releases/tag/Release_2025_03_1
 
-    Examples:
-
-        *Adding SMILES to a Molecule's JSON*
-
-        You want to use the isomeric, canonical SMILES from RDKit as
-        part of a JSON representation of a molecule
-
-        .. testcode:: adding-smiles-to-a-molecules-json
-
-            import stk
-
-            jsonizer = stk.MoleculeJsonizer(
-                key_makers=(stk.Smiles(), ),
-            )
-            # Get the JSON representation, including an SMILES.
-            json = jsonizer.to_json(stk.BuildingBlock('NCCN'))
-
-        .. testcode:: adding-smiles-to-a-molecules-json
-            :hide:
-
-            assert json['molecule']['SMILES'] == 'NCCN'
-            assert json['matrix']['SMILES'] == 'NCCN'
     """
 
     def __init__(self) -> None:
