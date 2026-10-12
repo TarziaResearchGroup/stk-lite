@@ -116,7 +116,7 @@ of a given structure should be built.
 Here is a preview of some of the more complex structures
 :mod:`stk` can construct
 
-.. image:: https://i.imgur.com/PvkfoGs.jpg
+.. image:: docs/source/_static/stk_imgur_figure2.jpeg
 
 Automatic Molecular Design
 ..........................
