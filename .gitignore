@@ -1,7 +1,7 @@
 /dist
 /build
-src/stk.egg-info
-src/stk/_version.py
+src/stk_lite.egg-info
+src/stk_lite/_version.py
 /.coverage
 docs/source/_autosummary
 

@@ -2379,7 +2379,7 @@ wheels = [
 ]
 
 [[package]]
-name = "stk"
+name = "stk-lite"
 source = { editable = "." }
 dependencies = [
     { name = "atomlite" },
