@@ -442,9 +442,11 @@ class Macrocycle(TopologyGraph):
                 CycleVertex(
                     id=vertex_id,
                     position=(np.cos(theta), np.sin(theta), 0),
-                    flip=random_seed.choice(  # type: ignore[arg-type]
-                        choices,
-                        p=[flip_chance, 1 - flip_chance],
+                    flip=bool(
+                        random_seed.choice(
+                            choices,
+                            p=[flip_chance, 1 - flip_chance],
+                        )
                     ),
                     angle=theta,
                 )

@@ -18,38 +18,6 @@ class MoleculeKeyMaker:
         simply default implementations, which can be safely ignored or
         overridden, when implementing subclasses.
 
-    Examples:
-
-        *Creating a New Key Maker Directly*
-
-        Apart from using the subclasses provided, a
-        :class:`.MoleculeKeyMaker` can be used directly , if you don't
-        feel like writing a subclass
-
-        .. testcode:: creating-a-new-key-maker-directly
-
-            import stk
-
-            # Create a MoleculeKeyMaker instance with a custom get_key
-            # method.
-            get_num_atoms = stk.MoleculeKeyMaker(
-                key_name='num_atoms',
-                get_key=lambda molecule: str(molecule.get_num_atoms()),
-            )
-
-            # Use the MoleculeKeyMaker instance.
-            jsonizer = stk.MoleculeJsonizer(
-                key_makers=(get_num_atoms, ),
-            )
-            # Get the JSON representation of a molecule.
-            json = jsonizer.to_json(stk.BuildingBlock('NCCN'))
-
-        .. testcode:: creating-a-new-key-maker-directly
-            :hide:
-
-            assert json['molecule']['num_atoms'] == '12'
-            assert json['matrix']['num_atoms'] == '12'
-
     """
 
     def __init__(

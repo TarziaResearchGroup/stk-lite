@@ -24,74 +24,6 @@ from stk._internal.construction_state.graph_state import GraphState
 from stk._internal.construction_state.molecule_state.molecule_state import (
     MoleculeState,
 )
-from stk._internal.databases.constructed_molecule import (
-    ConstructedMoleculeDatabase,
-)
-from stk._internal.databases.molecule import MoleculeDatabase
-from stk._internal.databases.mongo_db.constructed_molecule import (
-    ConstructedMoleculeMongoDb,
-)
-from stk._internal.databases.mongo_db.molecule import MoleculeMongoDb
-from stk._internal.databases.mongo_db.value import ValueMongoDb
-from stk._internal.databases.value import ValueDatabase
-from stk._internal.ea.crossover.genetic_recombination import (
-    GeneticRecombination,
-)
-from stk._internal.ea.crossover.molecule_crosser import MoleculeCrosser
-from stk._internal.ea.crossover.random import RandomCrosser
-from stk._internal.ea.crossover.record import CrossoverRecord
-from stk._internal.ea.evolutionary_algorithm.evolutionary_algorithm import (
-    EvolutionaryAlgorithm,
-)
-from stk._internal.ea.fitness_calculators.fitness_calculator import (
-    FitnessCalculator,
-)
-from stk._internal.ea.fitness_calculators.fitness_function import (
-    FitnessFunction,
-)
-from stk._internal.ea.fitness_calculators.property_vector import PropertyVector
-from stk._internal.ea.fitness_normalizers.add import Add
-from stk._internal.ea.fitness_normalizers.divide_by_mean import DivideByMean
-from stk._internal.ea.fitness_normalizers.fitness_normalizer import (
-    FitnessNormalizer,
-)
-from stk._internal.ea.fitness_normalizers.multiply import Multiply
-from stk._internal.ea.fitness_normalizers.null import NullFitnessNormalizer
-from stk._internal.ea.fitness_normalizers.power import Power
-from stk._internal.ea.fitness_normalizers.replace_fitness import ReplaceFitness
-from stk._internal.ea.fitness_normalizers.sequence import NormalizerSequence
-from stk._internal.ea.fitness_normalizers.shift_up import ShiftUp
-from stk._internal.ea.fitness_normalizers.sum import Sum
-from stk._internal.ea.generation import FitnessValues, Generation
-from stk._internal.ea.molecule_record import MoleculeRecord
-from stk._internal.ea.mutation.mutator import MoleculeMutator
-from stk._internal.ea.mutation.random import RandomMutator
-from stk._internal.ea.mutation.random_building_block import RandomBuildingBlock
-from stk._internal.ea.mutation.random_topology_graph import RandomTopologyGraph
-from stk._internal.ea.mutation.record import MutationRecord
-from stk._internal.ea.mutation.similar_building_block import (
-    SimilarBuildingBlock,
-)
-from stk._internal.ea.plotters.progress import ProgressPlotter
-from stk._internal.ea.plotters.selection import SelectionPlotter
-from stk._internal.ea.selection.batch import Batch, BatchKey
-from stk._internal.ea.selection.selectors.above_average import AboveAverage
-from stk._internal.ea.selection.selectors.best import Best
-from stk._internal.ea.selection.selectors.filter_batches import FilterBatches
-from stk._internal.ea.selection.selectors.filter_molecules import (
-    FilterMolecules,
-)
-from stk._internal.ea.selection.selectors.remove_batches import RemoveBatches
-from stk._internal.ea.selection.selectors.remove_molecules import (
-    RemoveMolecules,
-)
-from stk._internal.ea.selection.selectors.roulette import Roulette
-from stk._internal.ea.selection.selectors.selector import Selector
-from stk._internal.ea.selection.selectors.stochastic_universal_sampling import (
-    StochasticUniversalSampling,
-)
-from stk._internal.ea.selection.selectors.tournament import Tournament
-from stk._internal.ea.selection.selectors.worst import Worst
 from stk._internal.elements import (
     Ac,
     Ag,
@@ -295,14 +227,6 @@ from stk._internal.functional_groups.secondary_amino import SecondaryAmino
 from stk._internal.functional_groups.single_atom import SingleAtom
 from stk._internal.functional_groups.thioacid import Thioacid
 from stk._internal.functional_groups.thiol import Thiol
-from stk._internal.json_serde.constructed_molecule import (
-    ConstructedMoleculeDejsonizer,
-    ConstructedMoleculeJsonizer,
-)
-from stk._internal.json_serde.molecule import (
-    MoleculeDejsonizer,
-    MoleculeJsonizer,
-)
 from stk._internal.key_makers.inchi import Inchi
 from stk._internal.key_makers.inchi_key import InchiKey
 from stk._internal.key_makers.molecule import MoleculeKeyMaker
@@ -349,13 +273,8 @@ from stk._internal.writers.turbomole import TurbomoleWriter
 from stk._internal.writers.xyz import XyzWriter
 from stk._version import __version__
 
-BatchKey = BatchKey  # noqa: PLW0127
-"""A unique key for a :class:`.Batch`."""
-
 __all__ = [
-    "AboveAverage",
     "Ac",
-    "Add",
     "Ag",
     "Al",
     "Alcohol",
@@ -375,10 +294,7 @@ __all__ = [
     "Au",
     "B",
     "Ba",
-    "Batch",
-    "BatchKey",
     "Be",
-    "Best",
     "Bh",
     "Bi",
     "Bk",
@@ -403,14 +319,9 @@ __all__ = [
     "Co",
     "Collapser",
     "ConstructedMolecule",
-    "ConstructedMoleculeDatabase",
-    "ConstructedMoleculeDejsonizer",
-    "ConstructedMoleculeJsonizer",
-    "ConstructedMoleculeMongoDb",
     "ConstructionResult",
     "ConstructionState",
     "Cr",
-    "CrossoverRecord",
     "Cs",
     "Cu",
     "DativeReaction",
@@ -422,7 +333,6 @@ __all__ = [
     "DifluoroFactory",
     "Diol",
     "DiolFactory",
-    "DivideByMean",
     "Ds",
     "Dy",
     "Edge",
@@ -430,15 +340,8 @@ __all__ = [
     "Er",
     "Es",
     "Eu",
-    "EvolutionaryAlgorithm",
     "F",
     "Fe",
-    "FilterBatches",
-    "FilterMolecules",
-    "FitnessCalculator",
-    "FitnessFunction",
-    "FitnessNormalizer",
-    "FitnessValues",
     "Fl",
     "Fluoro",
     "FluoroFactory",
@@ -449,10 +352,8 @@ __all__ = [
     "Ga",
     "Gd",
     "Ge",
-    "Generation",
     "GenericFunctionalGroup",
     "GenericReactionFactory",
-    "GeneticRecombination",
     "GraphState",
     "H",
     "He",
@@ -482,18 +383,10 @@ __all__ = [
     "Mo",
     "MolWriter",
     "Molecule",
-    "MoleculeCrosser",
-    "MoleculeDatabase",
-    "MoleculeDejsonizer",
-    "MoleculeJsonizer",
     "MoleculeKeyMaker",
-    "MoleculeMongoDb",
-    "MoleculeMutator",
     "MoleculeRecord",
     "MoleculeState",
     "Mt",
-    "Multiply",
-    "MutationRecord",
     "N",
     "Na",
     "Nb",
@@ -502,9 +395,7 @@ __all__ = [
     "Nh",
     "Ni",
     "No",
-    "NormalizerSequence",
     "Np",
-    "NullFitnessNormalizer",
     "NullOptimizer",
     "O",
     "Og",
@@ -521,27 +412,18 @@ __all__ = [
     "PeriodicInfo",
     "Pm",
     "Po",
-    "Power",
     "Pr",
     "PrimaryAmino",
     "PrimaryAminoFactory",
-    "ProgressPlotter",
-    "PropertyVector",
     "Pt",
     "Pu",
     "Ra",
-    "RandomBuildingBlock",
-    "RandomCrosser",
-    "RandomMutator",
     "RandomTopologyGraph",
     "Rb",
     "Re",
     "Reaction",
     "ReactionFactory",
     "ReactionResult",
-    "RemoveBatches",
-    "RemoveMolecules",
-    "ReplaceFitness",
     "Rf",
     "Rg",
     "Rh",
@@ -549,7 +431,6 @@ __all__ = [
     "RingAmineFactory",
     "RingAmineReaction",
     "Rn",
-    "Roulette",
     "Ru",
     "S",
     "Sb",
@@ -557,12 +438,8 @@ __all__ = [
     "Se",
     "SecondaryAmino",
     "SecondaryAminoFactory",
-    "SelectionPlotter",
-    "Selector",
     "Sg",
-    "ShiftUp",
     "Si",
-    "SimilarBuildingBlock",
     "SingleAtom",
     "Sm",
     "SmartsFunctionalGroupFactory",
@@ -570,8 +447,6 @@ __all__ = [
     "Sn",
     "Spinner",
     "Sr",
-    "StochasticUniversalSampling",
-    "Sum",
     "Ta",
     "Tb",
     "Tc",
@@ -587,17 +462,13 @@ __all__ = [
     "Tl",
     "Tm",
     "TopologyGraph",
-    "Tournament",
     "Ts",
     "TurbomoleWriter",
     "TwoTwoReaction",
     "U",
     "V",
-    "ValueDatabase",
-    "ValueMongoDb",
     "Vertex",
     "W",
-    "Worst",
     "Xe",
     "XyzWriter",
     "Y",

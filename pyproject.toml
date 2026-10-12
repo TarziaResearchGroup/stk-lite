@@ -9,19 +9,11 @@ maintainers = [
   { name = "Andrew Tarzia", email = "andrew.tarzia@gmail.com" },
 ]
 dependencies = [
-  "atomlite",
-  "scipy",
-  "matplotlib",
-  "pandas",
-  "pathos",
-  "seaborn",
-  "numpy",
-  "pymongo[srv]",
-  "MCHammer",
-  "SpinDry",
-  "vabene",
-  # Avoid one version with bad changes to structure.
-  "rdkit != 2024.3.5",
+    "atomlite",
+    "scipy",
+    "pathos",
+    "MCHammer",
+    "SpinDry",
 ]
 requires-python = ">=3.11"
 dynamic = ["version"]
@@ -30,28 +22,23 @@ description = "Automatic molecular construction and design."
 
 [project.optional-dependencies]
 dev = [
-  "ruff",
-  "moldoc==3.0.0",
-  "mypy",
-  "pip-tools",
-  "pytest",
-  "pytest-benchmark",
-  "pytest-datadir",
-  "pytest-lazy-fixtures",
-  "pytest-cov",
-  "sphinx",
-  "sphinx-copybutton",
-  "sphinx-rtd-theme",
-  "twine",
-  "chemiscope",
+    "ruff",
+    "mypy",
+    "pytest",
+    "pytest-datadir",
+    "pytest-lazy-fixtures",
+    "pytest-cov",
+    "sphinx",
+    "sphinx-copybutton",
+    "sphinx-rtd-theme",
+    "chemiscope",
+    "moldoc==3.0.0",
 ]
 
 [project.urls]
-github = "https://github.com/lukasturcani/stk"
-documentation = "https://stk.readthedocs.io"
+github = "https://github.com/TarziaResearchGroup/stk-lite"
+documentation = "https://stk-lite.readthedocs.io"
 
-[project.scripts]
-coordinate_check = "stk._internal.scripts.coordinate_check:main"
 
 [tool.setuptools_scm]
 write_to = "src/stk/_version.py"
@@ -70,12 +57,9 @@ testpaths = [
 python_files = [
     "test_*.py",
     "*_test.py",
-    "benchmark_*.py",
-    "*_benchmark.py",
 ]
 python_functions = [
   "test_*",
-  "benchmark_*",
 ]
 
 [tool.mypy]
@@ -87,16 +71,10 @@ strict_optional = true
 [[tool.mypy.overrides]]
 module = [
   "scipy.*",
-  "pytest_lazyfixture.*",
+  "pytest_lazy_fixtures.*",
   "pathos.*",
-  "matplotlib.*",
-  "pandas.*",
-  "seaborn.*",
   "mchammer.*",
   "spindry.*",
-  "pymongo.*",
-  "vabene.*",
-  "setuptools.*"
 ]
 ignore_missing_imports = true
 

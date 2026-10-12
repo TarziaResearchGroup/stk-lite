@@ -551,15 +551,17 @@ class Linear(TopologyGraph):
             HeadVertex(
                 id=0,
                 position=np.array([0, 0, 0]),
-                flip=random_seed.choice(  # type: ignore[arg-type]
-                    a=choices,
-                    p=[head_orientation, 1 - head_orientation],
+                flip=bool(
+                    random_seed.choice(
+                        a=choices,
+                        p=[head_orientation, 1 - head_orientation],
+                    )
                 ),
             ),
         ]
         edges: list[Edge] = []
         for i, p in enumerate(body_orientations, 1):
-            flip = random_seed.choice(choices, p=[p, 1 - p])  # type: ignore[arg-type]
+            flip = bool(random_seed.choice(choices, p=[p, 1 - p]))
             vertices.append(
                 LinearVertex(i, np.array([i, 0, 0]), flip),  # type: ignore[arg-type]
             )
@@ -569,9 +571,11 @@ class Linear(TopologyGraph):
             TailVertex(
                 id=len(vertices),
                 position=np.array([len(vertices), 0, 0]),
-                flip=random_seed.choice(  # type: ignore[arg-type]
-                    a=choices,
-                    p=[tail_orientation, 1 - tail_orientation],
+                flip=bool(
+                    random_seed.choice(
+                        a=choices,
+                        p=[tail_orientation, 1 - tail_orientation],
+                    )
                 ),
             ),
         )

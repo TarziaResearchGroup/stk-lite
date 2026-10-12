@@ -4,8 +4,6 @@ import typing
 
 from stk._internal.atom import Atom
 
-_T = typing.TypeVar("_T", bound="FunctionalGroup")  # noqa: PYI018
-
 
 class FunctionalGroup:
     """

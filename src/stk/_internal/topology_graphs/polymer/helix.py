@@ -476,16 +476,18 @@ class Helix(TopologyGraph):
             HelixVertex(
                 id=0,
                 position=np.array([radius, 0, 0 * mirror]),
-                flip=random_seed.choice(  # type: ignore[arg-type]
-                    a=choices,
-                    p=[head_orientation, 1 - head_orientation],
+                flip=bool(
+                    random_seed.choice(
+                        a=choices,
+                        p=[head_orientation, 1 - head_orientation],
+                    )
                 ),
             ),
         ]
         edges: list[Edge] = []
         for i, p in enumerate(body_orientations, 1):
             curr_angle = half_step_hsp + i * step_hsp
-            flip = random_seed.choice(choices, p=[p, 1 - p])  # type: ignore[arg-type]
+            flip = bool(random_seed.choice(choices, p=[p, 1 - p]))
             vertices.append(
                 HelixVertex(
                     i,
@@ -511,9 +513,11 @@ class Helix(TopologyGraph):
                         height * mirror,
                     ]
                 ),
-                flip=random_seed.choice(  # type: ignore[arg-type]
-                    a=choices,
-                    p=[tail_orientation, 1 - tail_orientation],
+                flip=bool(
+                    random_seed.choice(
+                        a=choices,
+                        p=[tail_orientation, 1 - tail_orientation],
+                    )
                 ),
             ),
         )
